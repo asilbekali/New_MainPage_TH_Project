@@ -59,40 +59,40 @@ function ResponsiveAppBar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
+      style={{ position: 'relative', zIndex: 1300 }}
     >
       <AppBar 
         position="fixed" 
         sx={{
-          background: trigger ? 'rgba(255, 255, 255, 0.8)' : 'transparent',
-          backdropFilter: trigger ? 'blur(20px)' : 'none',
-          boxShadow: trigger ? '0 4px 30px rgba(0, 0, 0, 0.05)' : 'none',
-          borderBottom: trigger ? '1px solid rgba(255, 255, 255, 0.2)' : 'none',
+          zIndex: 1301,
+          background: trigger ? 'rgba(0, 0, 0, 0.75)' : 'rgba(0, 0, 0, 0.3)',
+          backdropFilter: 'blur(15px)',
+          boxShadow: trigger ? '0 4px 30px rgba(0, 0, 0, 0.2)' : 'none',
+          borderBottom: trigger ? '1px solid rgba(255, 255, 255, 0.1)' : 'none',
           transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-          color: '#333'
+          color: '#fff' 
         }}
       >
         <Container maxWidth="xl">
-          <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
+          <Toolbar disableGutters sx={{ justifyContent: 'space-between', height: { xs: '64px', md: '80px' } }}>
             
-            {/* LOGO - O'lcham va joylashuv to'g'rilandi */}
+            {/* LOGO */}
             <Box 
               onClick={() => router.push(`/${currentLocale}`)}
               sx={{ 
                 display: 'flex', 
                 alignItems: 'center', 
-                cursor: 'pointer',
-                // Mobil va Desktop uchun balandlikni boshqarish
-                height: { xs: '40px', md: '50px' } 
+                cursor: 'pointer', 
+                height: { xs: '35px', md: '45px' } 
               }}
             >
                 <img 
                   src="/logo.svg" 
                   alt="Logo" 
                   style={{ 
-                    height: '100%', // Konteyner balandligiga moslashadi
-                    width: 'auto',  // Proportionallikni saqlaydi
-                    display: 'block',
-                    objectFit: 'contain'
+                    height: '100%', 
+                    width: 'auto', 
+                    objectFit: 'contain',
                   }} 
                 />
             </Box>
@@ -104,8 +104,13 @@ function ResponsiveAppBar() {
                     <Button
                         onClick={() => router.push(`/${currentLocale}${page.link}`)}
                         sx={{ 
-                            my: 2, color: '#2c3e50', display: 'block', textTransform: 'none',
-                            fontWeight: 500, fontSize: '15px', transition: '0.3s',
+                            my: 2, 
+                            color: '#fff', 
+                            display: 'block', 
+                            textTransform: 'none',
+                            fontWeight: 500, 
+                            fontSize: '15px', 
+                            transition: '0.3s',
                             '&:hover': { color: '#00bcd4', backgroundColor: 'transparent' }
                         }}
                     >
@@ -122,79 +127,96 @@ function ResponsiveAppBar() {
               ))}
             </Box>
 
-            {/* O'ng tomon: Til, Kirish va Mobil Menyu */}
+            {/* Right Side: Language & Auth & Mobile Toggle */}
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
               
+              {/* Language Switcher */}
               <Button 
                 onClick={handleOpenLangMenu}
-                startIcon={<LanguageIcon sx={{ fontSize: 20 }} />} 
-                endIcon={<KeyboardArrowDownIcon />}
-                sx={{ color: '#444', textTransform: 'uppercase', fontWeight: 600 }}
+                startIcon={<LanguageIcon sx={{ fontSize: 20, color: '#fff' }} />} 
+                endIcon={<KeyboardArrowDownIcon sx={{ color: '#fff' }} />}
+                sx={{ color: '#fff', textTransform: 'uppercase', fontWeight: 600 }}
               >
                 {currentLocale}
               </Button>
+              
               <Menu
                 anchorEl={anchorElLang}
                 open={Boolean(anchorElLang)}
                 onClose={() => setAnchorElLang(null)}
-                PaperProps={{
-                    sx: { mt: 1, borderRadius: '12px', background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)' }
-                }}
+                PaperProps={{ sx: { mt: 1, borderRadius: '12px' } }}
               >
                 {languages.map((lang) => (
                   <MenuItem key={lang.code} onClick={() => handleLanguageChange(lang.code)}>
-                    <Typography sx={{ fontSize: '14px' }}>{lang.label}</Typography>
+                    {lang.label}
                   </MenuItem>
                 ))}
               </Menu>
 
+              {/* Desktop Auth Buttons */}
               <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
-                <Button onClick={() => router.push(`/${currentLocale}/login`)} sx={{ color: '#444', textTransform: 'none', fontWeight: 600 }}>
+                <Button 
+                  onClick={() => router.push(`/${currentLocale}/login`)} 
+                  sx={{ color: '#fff', textTransform: 'none', fontWeight: 600 }}
+                >
                     {t('login')}
                 </Button>
                 <Button 
                     variant="contained" 
                     onClick={() => router.push(`/${currentLocale}/register`)}
                     sx={{ 
-                        borderRadius: '12px', px: 3, textTransform: 'none',
-                        backgroundColor: '#00bcd4', boxShadow: 'none',
-                        '&:hover': { backgroundColor: '#00acc1' }
+                      borderRadius: '12px', px: 3, backgroundColor: '#00bcd4', 
+                      textTransform: 'none', fontWeight: 600, boxShadow: 'none'
                     }}
                 >
                     {t('signup')}
                 </Button>
               </Box>
 
-              {/* MOBIL MENYU TUGMASI VA MENYUSI */}
+              {/* MOBILE MENU SECTION */}
               <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                <IconButton onClick={handleOpenNavMenu} sx={{ color: '#444' }}>
+                <IconButton onClick={handleOpenNavMenu} sx={{ color: '#fff' }}>
                   <MenuIcon />
                 </IconButton>
                 <Menu
                   anchorEl={anchorElNav}
                   open={Boolean(anchorElNav)}
                   onClose={handleCloseNavMenu}
+                  anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                  transformOrigin={{ vertical: 'top', horizontal: 'left' }}
                   sx={{ display: { xs: 'block', md: 'none' } }}
                   PaperProps={{
-                    sx: { width: '200px', borderRadius: '12px', mt: 1 }
+                    sx: { width: '200px', borderRadius: '12px', mt: 1.5 }
                   }}
                 >
+                  {/* Mobil menyuda sahifalar chiqishi */}
                   {pages.map((page) => (
-                    <MenuItem key={page.name} onClick={() => {
+                    <MenuItem 
+                      key={page.name} 
+                      onClick={() => {
                         handleCloseNavMenu();
                         router.push(`/${currentLocale}${page.link}`);
-                    }}>
-                      <Typography textAlign="center">{page.name}</Typography>
+                      }}
+                    >
+                      <Typography textAlign="center" sx={{ fontWeight: 500 }}>
+                        {page.name}
+                      </Typography>
                     </MenuItem>
                   ))}
-                  <hr style={{ border: '0.5px solid #eee', margin: '8px 0' }} />
-                  <MenuItem onClick={() => { handleCloseNavMenu(); router.push(`/${currentLocale}/login`); }}>
-                    <Typography color="#00bcd4">{t('login')}</Typography>
-                  </MenuItem>
+                  
+                  {/* Mobil menyuda Login/Register (faqat kichik ekranlarda) */}
+                  <Box sx={{ display: { xs: 'block', sm: 'none' }, borderTop: '1px solid #eee', mt: 1, pt: 1 }}>
+                    <MenuItem onClick={() => { handleCloseNavMenu(); router.push(`/${currentLocale}/login`); }}>
+                      <Typography color="#333">{t('login')}</Typography>
+                    </MenuItem>
+                    <MenuItem onClick={() => { handleCloseNavMenu(); router.push(`/${currentLocale}/register`); }}>
+                      <Typography color="#00bcd4" sx={{ fontWeight: 600 }}>{t('signup')}</Typography>
+                    </MenuItem>
+                  </Box>
                 </Menu>
               </Box>
-            </Box>
 
+            </Box>
           </Toolbar>
         </Container>
       </AppBar>

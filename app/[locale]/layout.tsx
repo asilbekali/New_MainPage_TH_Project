@@ -21,17 +21,17 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>; 
 }) {
-  // Next.js 15+ uchun paramsni kutish (await) kerak
   const { locale } = await params;
   const messages = await getMessages();
   
   return (
     <html lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* NextIntlClientProvider context yaratib beradi */}
         <NextIntlClientProvider messages={messages} locale={locale}>
           <ResponsiveAppBar />
-          {children}
+          <main style={{ paddingTop: '80px' }}> 
+            {children}
+          </main>
         </NextIntlClientProvider>
       </body>
     </html>
