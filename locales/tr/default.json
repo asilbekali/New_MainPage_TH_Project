@@ -3,6 +3,8 @@
     "blog": "Blog",
     "career": "Kariyer",
     "course": "Kurslar",
-    "home": "Hakkımızda"
+    "home": "Hakkımızda",
+    "login": "Giriş Yap",
+    "signup": "Kayıt Ol"
   }
 }

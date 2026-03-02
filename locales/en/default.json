@@ -3,6 +3,8 @@
     "blog": "Blog",
     "career": "Career",
     "course": "Courses",
-    "home": "About Us"
+    "home": "About Us",
+    "login": "Log In",
+    "signup": "Sign Up"
   }
 }

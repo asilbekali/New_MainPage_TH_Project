@@ -16,25 +16,23 @@ const languages = [
   { code: 'uz', label: 'O‘zbekcha' },
   { code: 'en', label: 'English' },
   { code: 'ru', label: 'Русский' },
-  { code: 'ar', label: 'العربية' }, // Arab tili qo'shildi
+  { code: 'ar', label: 'العربية' },
   { code: 'tr', label: 'Türkçe' }
 ];
+
 function ResponsiveAppBar() {
-  const t = useTranslations('header'); // JSON-dagi 'header' obyektidan foydalanamiz
+  const t = useTranslations('header');
   const pathname = usePathname();
   const router = useRouter();
 
-  // Hozirgi tilni URL-dan aniqlash
   const currentLocale = pathname.split('/')[1] || 'en';
 
-  // Menyu elementlari
-// Navbar.tsx ichidagi pages qismini mana bunday yozing:
-const pages = [
-  { name: t('home'), link: '/' },
-  { name: t('course'), link: '/courses' },
-  { name: t('career'), link: '/career' },
-  { name: t('blog'), link: '/blog' },
-];
+  const pages = [
+    { name: t('home'), link: '/' },
+    { name: t('course'), link: '/courses' },
+    { name: t('career'), link: '/career' },
+    { name: t('blog'), link: '/blog' },
+  ];
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElLang, setAnchorElLang] = React.useState<null | HTMLElement>(null);
@@ -46,14 +44,13 @@ const pages = [
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => setAnchorElNav(event.currentTarget);
   const handleCloseNavMenu = () => setAnchorElNav(null);
-
   const handleOpenLangMenu = (event: React.MouseEvent<HTMLElement>) => setAnchorElLang(event.currentTarget);
 
-  // Til o'zgarganda URL-ni yangilash mantiqi
   const handleLanguageChange = (newLocale: string) => {
     const segments = pathname.split('/');
     segments[1] = newLocale;
-    const newPath = segments.join('/');
+    // .filter(Boolean) bo'sh stringlarni olib tashlaydi, keyin join('/') to'g'ri URL yasaydi
+    const newPath = `/${segments.filter(Boolean).join('/')}`;
     router.push(newPath);
     setAnchorElLang(null);
   };
@@ -67,7 +64,7 @@ const pages = [
       <AppBar 
         position="fixed" 
         sx={{
-          background: trigger ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+          background: trigger ? 'rgba(255, 255, 255, 0.8)' : 'transparent',
           backdropFilter: trigger ? 'blur(20px)' : 'none',
           boxShadow: trigger ? '0 4px 30px rgba(0, 0, 0, 0.05)' : 'none',
           borderBottom: trigger ? '1px solid rgba(255, 255, 255, 0.2)' : 'none',
@@ -79,9 +76,14 @@ const pages = [
           <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
             
             {/* LOGO */}
-            <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => router.push(`/${currentLocale}`)}>
                 <Typography variant="h5" sx={{ fontWeight: 800, color: '#00bcd4', letterSpacing: '-1px' }}>
-                    LOGO
+                    <img src="" alt="" />
+
+
+
+
+                    
                 </Typography>
             </Box>
 
@@ -90,7 +92,7 @@ const pages = [
               {pages.map((page) => (
                 <Box key={page.name} sx={{ position: 'relative', '&:hover .hover-line': { width: '100%' } }}>
                     <Button
-                        href={`/${currentLocale}${page.link}`}
+                        onClick={() => router.push(`/${currentLocale}${page.link}`)}
                         sx={{ 
                             my: 2, color: '#2c3e50', display: 'block', textTransform: 'none',
                             fontWeight: 500, fontSize: '15px', transition: '0.3s',
@@ -110,7 +112,7 @@ const pages = [
               ))}
             </Box>
 
-            {/* O'ng tomon: Til va Kirish */}
+            {/* O'ng tomon: Til, Kirish va Mobil Menyu */}
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
               
               <Button 
@@ -126,7 +128,7 @@ const pages = [
                 open={Boolean(anchorElLang)}
                 onClose={() => setAnchorElLang(null)}
                 PaperProps={{
-                    sx: { mt: 1, borderRadius: '12px', background: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(10px)' }
+                    sx: { mt: 1, borderRadius: '12px', background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(10px)' }
                 }}
               >
                 {languages.map((lang) => (
@@ -137,25 +139,50 @@ const pages = [
               </Menu>
 
               <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
-                <Button href={`/${currentLocale}/login`} sx={{ color: '#444', textTransform: 'none', fontWeight: 600 }}>
-                    Log In
+                <Button onClick={() => router.push(`/${currentLocale}/login`)} sx={{ color: '#444', textTransform: 'none', fontWeight: 600 }}>
+                    {t('login')}
                 </Button>
                 <Button 
                     variant="contained" 
-                    href={`/${currentLocale}/register`}
+                    onClick={() => router.push(`/${currentLocale}/register`)}
                     sx={{ 
                         borderRadius: '12px', px: 3, textTransform: 'none',
                         backgroundColor: '#00bcd4', boxShadow: 'none',
                         '&:hover': { backgroundColor: '#00acc1' }
                     }}
                 >
-                    Sign Up
+                    {t('signup')}
                 </Button>
               </Box>
 
-              <IconButton onClick={handleOpenNavMenu} sx={{ display: { xs: 'flex', md: 'none' }, color: '#444' }}>
-                <MenuIcon />
-              </IconButton>
+              {/* MOBIL MENYU TUGMASI VA MENYUSI */}
+              <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                <IconButton onClick={handleOpenNavMenu} sx={{ color: '#444' }}>
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  anchorEl={anchorElNav}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                  sx={{ display: { xs: 'block', md: 'none' } }}
+                  PaperProps={{
+                    sx: { width: '200px', borderRadius: '12px', mt: 1 }
+                  }}
+                >
+                  {pages.map((page) => (
+                    <MenuItem key={page.name} onClick={() => {
+                        handleCloseNavMenu();
+                        router.push(`/${currentLocale}${page.link}`);
+                    }}>
+                      <Typography textAlign="center">{page.name}</Typography>
+                    </MenuItem>
+                  ))}
+                  <hr style={{ border: '0.5px solid #eee', margin: '8px 0' }} />
+                  <MenuItem onClick={() => { handleCloseNavMenu(); router.push(`/${currentLocale}/login`); }}>
+                    <Typography color="#00bcd4">{t('login')}</Typography>
+                  </MenuItem>
+                </Menu>
+              </Box>
             </Box>
 
           </Toolbar>

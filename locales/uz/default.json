@@ -3,6 +3,8 @@
     "blog": "Blog",
     "career": "Karyera",
     "course": "Kurslar",
-    "home": "Biz haqimizda"
+    "home": "Biz haqimizda",
+    "login": "Kirish",
+    "signup": "Ro'yxatdan o'tish"
   }
 }
