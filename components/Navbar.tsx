@@ -49,7 +49,6 @@ function ResponsiveAppBar() {
   const handleLanguageChange = (newLocale: string) => {
     const segments = pathname.split('/');
     segments[1] = newLocale;
-    // .filter(Boolean) bo'sh stringlarni olib tashlaydi, keyin join('/') to'g'ri URL yasaydi
     const newPath = `/${segments.filter(Boolean).join('/')}`;
     router.push(newPath);
     setAnchorElLang(null);
@@ -75,16 +74,27 @@ function ResponsiveAppBar() {
         <Container maxWidth="xl">
           <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
             
-            {/* LOGO */}
-            <Box sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }} onClick={() => router.push(`/${currentLocale}`)}>
-                <Typography variant="h5" sx={{ fontWeight: 800, color: '#00bcd4', letterSpacing: '-1px' }}>
-                    <img src="" alt="" />
-
-
-
-
-                    
-                </Typography>
+            {/* LOGO - O'lcham va joylashuv to'g'rilandi */}
+            <Box 
+              onClick={() => router.push(`/${currentLocale}`)}
+              sx={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                cursor: 'pointer',
+                // Mobil va Desktop uchun balandlikni boshqarish
+                height: { xs: '40px', md: '50px' } 
+              }}
+            >
+                <img 
+                  src="/logo.svg" 
+                  alt="Logo" 
+                  style={{ 
+                    height: '100%', // Konteyner balandligiga moslashadi
+                    width: 'auto',  // Proportionallikni saqlaydi
+                    display: 'block',
+                    objectFit: 'contain'
+                  }} 
+                />
             </Box>
 
             {/* Desktop Menu */}
