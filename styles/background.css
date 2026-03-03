@@ -1,7 +1,5 @@
-/* styles/background.css */
 .container2 {
   width: 100%;
-  /* Balandlikni auto va min-height qilish scrol ishlashini ta'minlaydi */
   min-height: 100vh;
   height: auto; 
   background: linear-gradient(
@@ -12,7 +10,6 @@
     ),
     linear-gradient(to right, #0ed2da, #5f29c7);
   position: relative;
-  /* Faqat gorizontal (yonlama) scrolni o'chiramiz */
   overflow-x: hidden;
   overflow-y: visible;
 }
