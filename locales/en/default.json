@@ -6,5 +6,13 @@
     "home": "About Us",
     "login": "Log In",
     "signup": "Sign Up"
+  },
+  "hero": {
+    "desc": "Ta'limHub - is a platform that helps you to learn anything from anywhere.",
+    "join_free": "Join for free",
+    "much": "much easier",
+    "online": "online",
+    "studying": "Studying",
+    "watch_video": "Watch how it works"
   }
 }

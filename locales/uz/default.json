@@ -6,5 +6,13 @@
     "home": "Biz haqimizda",
     "login": "Kirish",
     "signup": "Ro'yxatdan o'tish"
+  },
+  "hero": {
+    "desc": "Ta'limHub - bu sizga har qanday narsani har qanday joydan o'rganishga yordam beradigan platforma.",
+    "join_free": "Bepul qo'shiling",
+    "much": "ancha osonroq",
+    "online": "Onlayn",
+    "studying": "o'qish",
+    "watch_video": "Qanday ishlashini tomosha qiling"
   }
 }
