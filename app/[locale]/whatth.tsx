@@ -30,11 +30,11 @@ const WhatSection = () => {
           imageHeight="420px"
           imageWidth="100%"
           rotateAmplitude={10}
-          scaleOnHover={1.05}
+          scaleOnHover={1.08}
           showMobileWarning={false}
           displayOverlayContent
           overlayContent={
-            <div className="flex flex-col items-center justify-center h-full bg-black/50 rounded-3xl p-8 text-center">
+            <div className="flex flex-col items-center justify-center h-full w-full bg-black/50 rounded-3xl p-8 text-center">
               <h3 className="text-3xl font-bold mb-6 uppercase tracking-wide">
                 For Educators
               </h3>

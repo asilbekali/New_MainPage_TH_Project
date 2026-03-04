@@ -108,7 +108,7 @@ const Hero = () => {
             >
               {renderTitle()}
             </Typography>
-            <Typography sx={{ color: isDark ? '#A1A1A1' : '#696984', fontSize: { xs: '1rem', md: '1.2rem' }, mb: 4.5, maxWidth: { xs: '100%', md: '500px' }, mx: { xs: 'auto', md: isRtl ? '0 0 0 auto' : 0 } }}>
+            <Typography sx={{ color: isDark ? '#A1A1A1' : '#fff', fontSize: { xs: '1rem', md: '1.2rem' }, mb: 4.5, maxWidth: { xs: '100%', md: '500px' }, mx: { xs: 'auto', md: isRtl ? '0 0 0 auto' : 0 } }}>
               {t('desc')}
             </Typography>
             <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2.5} alignItems="center" justifyContent={{ xs: 'center', md: isRtl ? 'flex-end' : 'flex-start' }}>
@@ -122,7 +122,7 @@ const Hero = () => {
                 <IconButton sx={{ bgcolor: isDark ? '#333' : 'white', boxShadow: '0 5px 15px rgba(0,0,0,0.1)', color: '#23BEEE' }}>
                   <PlayArrowIcon sx={{ transform: isRtl ? 'rotate(180deg)' : 'none' }} />
                 </IconButton>
-                <Typography sx={{ fontWeight: 600, color: isDark ? '#fff' : '#2F327D' }}>{t('watch_video')}</Typography>
+                <Typography sx={{ fontWeight: 600, color: isDark ? '#fff' : '#fff' }}>{t('watch_video')}</Typography>
               </Stack>
             </Stack>
           </MotionBox>

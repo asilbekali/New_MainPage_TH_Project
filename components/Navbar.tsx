@@ -27,11 +27,12 @@ function ResponsiveAppBar() {
 
   const currentLocale = pathname.split('/')[1] || 'en';
 
+  // Linklarni ID larga moslab chiqdim
   const pages = [
-    { name: t('home'), link: '/' },
-    { name: t('course'), link: '/courses' },
-    { name: t('career'), link: '/career' },
-    { name: t('blog'), link: '/blog' },
+    { name: t('home'), link: 'aboutus' },
+    { name: t('course'), link: 'courses' },
+    { name: t('career'), link: 'career' },
+    { name: t('blog'), link: 'blog' },
   ];
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -45,6 +46,22 @@ function ResponsiveAppBar() {
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => setAnchorElNav(event.currentTarget);
   const handleCloseNavMenu = () => setAnchorElNav(null);
   const handleOpenLangMenu = (event: React.MouseEvent<HTMLElement>) => setAnchorElLang(event.currentTarget);
+
+  // SKROL FUNKSIYASI
+  const handleNavClick = (linkId: string) => {
+    handleCloseNavMenu();
+    
+    // Agar foydalanuvchi asosiy sahifada bo'lsa
+    if (pathname === `/${currentLocale}` || pathname === `/`) {
+      const element = document.getElementById(linkId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else {
+      // Agar foydalanuvchi boshqa sahifada bo'lsa (masalan /login), avval homega o'tadi
+      router.push(`/${currentLocale}#${linkId}`);
+    }
+  };
 
   const handleLanguageChange = (newLocale: string) => {
     const segments = pathname.split('/');
@@ -78,7 +95,7 @@ function ResponsiveAppBar() {
             
             {/* LOGO */}
             <Box 
-              onClick={() => router.push(`/${currentLocale}`)}
+              onClick={() => handleNavClick('hero')}
               sx={{ 
                 display: 'flex', 
                 alignItems: 'center', 
@@ -102,7 +119,7 @@ function ResponsiveAppBar() {
               {pages.map((page) => (
                 <Box key={page.name} sx={{ position: 'relative', '&:hover .hover-line': { width: '100%' } }}>
                     <Button
-                        onClick={() => router.push(`/${currentLocale}${page.link}`)}
+                        onClick={() => handleNavClick(page.link)}
                         sx={{ 
                             my: 2, 
                             color: '#fff', 
@@ -127,10 +144,8 @@ function ResponsiveAppBar() {
               ))}
             </Box>
 
-            {/* Right Side: Language & Auth & Mobile Toggle */}
+            {/* Right Side */}
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              
-              {/* Language Switcher */}
               <Button 
                 onClick={handleOpenLangMenu}
                 startIcon={<LanguageIcon sx={{ fontSize: 20, color: '#fff' }} />} 
@@ -153,7 +168,6 @@ function ResponsiveAppBar() {
                 ))}
               </Menu>
 
-              {/* Desktop Auth Buttons */}
               <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
                 <Button 
                   onClick={() => router.push(`/${currentLocale}/login`)} 
@@ -173,7 +187,7 @@ function ResponsiveAppBar() {
                 </Button>
               </Box>
 
-              {/* MOBILE MENU SECTION */}
+              {/* MOBILE MENU */}
               <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
                 <IconButton onClick={handleOpenNavMenu} sx={{ color: '#fff' }}>
                   <MenuIcon />
@@ -182,37 +196,15 @@ function ResponsiveAppBar() {
                   anchorEl={anchorElNav}
                   open={Boolean(anchorElNav)}
                   onClose={handleCloseNavMenu}
-                  anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
-                  transformOrigin={{ vertical: 'top', horizontal: 'left' }}
-                  sx={{ display: { xs: 'block', md: 'none' } }}
-                  PaperProps={{
-                    sx: { width: '200px', borderRadius: '12px', mt: 1.5 }
-                  }}
+                  PaperProps={{ sx: { width: '200px', borderRadius: '12px', mt: 1.5 } }}
                 >
-                  {/* Mobil menyuda sahifalar chiqishi */}
                   {pages.map((page) => (
-                    <MenuItem 
-                      key={page.name} 
-                      onClick={() => {
-                        handleCloseNavMenu();
-                        router.push(`/${currentLocale}${page.link}`);
-                      }}
-                    >
+                    <MenuItem key={page.name} onClick={() => handleNavClick(page.link)}>
                       <Typography textAlign="center" sx={{ fontWeight: 500 }}>
                         {page.name}
                       </Typography>
                     </MenuItem>
                   ))}
-                  
-                  {/* Mobil menyuda Login/Register (faqat kichik ekranlarda) */}
-                  <Box sx={{ display: { xs: 'block', sm: 'none' }, borderTop: '1px solid #eee', mt: 1, pt: 1 }}>
-                    <MenuItem onClick={() => { handleCloseNavMenu(); router.push(`/${currentLocale}/login`); }}>
-                      <Typography color="#333">{t('login')}</Typography>
-                    </MenuItem>
-                    <MenuItem onClick={() => { handleCloseNavMenu(); router.push(`/${currentLocale}/register`); }}>
-                      <Typography color="#00bcd4" sx={{ fontWeight: 600 }}>{t('signup')}</Typography>
-                    </MenuItem>
-                  </Box>
                 </Menu>
               </Box>
 
