@@ -29,7 +29,7 @@ export default async function RootLayout({
   return (
     <html  lang={locale}>
       <body  className={`${geistSans.variable} ${geistMono.variable} antialiased container2`}>
-        <NextIntlClientProvider messages={messages} locale={locale}>
+        <NextIntlClientProvider messages={messages} locale={locale} >
           <ResponsiveAppBar />
           <main  style={{ paddingTop: '80px' }}> 
             {children}

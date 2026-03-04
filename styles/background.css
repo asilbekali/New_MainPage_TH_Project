@@ -1,34 +1,41 @@
 .container2 {
   width: 100%;
   min-height: 100vh;
-  height: auto; 
-  background: linear-gradient(
-      to bottom,
-      #fff 0%,
-      #fff 40%,
-      rgba(255, 255, 255, 0) 100%
-    ),
-    linear-gradient(to right, #0ed2da, #5f29c7);
+  /* Asosiy rangli gradient */
+  background: linear-gradient(to right, #0ed2da, #5f29c7);
   position: relative;
   overflow-x: hidden;
-  overflow-y: visible;
+  display: flex;
+  flex-direction: column;
+  /* Ichidagi kontent tepada oq fon bilan aralashib ketmasligi uchun */
+  color: #ffffff; 
 }
 
+/* Setka (Grid) effekti */
 .container2::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(90deg, rgba(204, 204, 204, 0.3) 1px, transparent 1px);
+  /* Vertikal chiziqlar */
+  background-image: linear-gradient(
+    90deg, 
+    rgba(255, 255, 255, 0.15) 1px, 
+    transparent 1px
+  );
   background-size: 50px 100%;
   pointer-events: none;
+  z-index: 1;
+  /* Yuqoridan pastga qarab yo'qolish effekti (mask) */
   mask-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0) 70%
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0) 100%
   );
   -webkit-mask-image: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0) 70%
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0) 100%
   );
 }

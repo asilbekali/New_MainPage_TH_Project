@@ -63,7 +63,7 @@ const Hero = () => {
   });
 
   return (
-    <MotionBox 
+    <MotionBox  
       initial="hidden"
       whileInView="visible"
       variants={containerVariants}
@@ -215,7 +215,6 @@ const Hero = () => {
               </Box>
             </MotionBox>
           </MotionBox>
-
         </Stack>
       </Container>
     </MotionBox>
