@@ -8,11 +8,17 @@
     "signup": "Kayıt Ol"
   },
   "hero": {
+    "250K": "250K",
+    "admission_completed": "Kayıt tamamlandı",
+    "assistant": "Asistan",
+    "congratulations": "Tebrikler",
     "desc": "Ta'limHub - her yerden herhangi bir şeyi öğrenmenize yardımcı olan bir platformdur.",
     "join_free": "Ücretsiz katılın",
     "much": "çok daha kolay",
     "online": "çevrimiçi",
     "studying": "Çalışma",
+    "time": "Bugün saat 12.00'de",
+    "user": "Kullanıcı Deneyimi Sınıfı",
     "watch_video": "Nasıl çalıştığını izle"
   }
 }

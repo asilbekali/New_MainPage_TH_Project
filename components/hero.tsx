@@ -115,6 +115,9 @@ const Hero = () => {
               <Button variant="contained" sx={{ bgcolor: '#F48C06', borderRadius: '35px', px: 5, py: 1.6, textTransform: 'none', width: { xs: '100%', sm: 'auto' }, boxShadow: '0 10px 25px rgba(244, 140, 6, 0.3)', fontWeight: 600, '&:hover': { bgcolor: '#e07e05' } }}>
                 {t('join_free')}
               </Button>
+
+
+
               <Stack direction="row" spacing={1.5} alignItems="center" sx={{ cursor: 'pointer', py: 1 }}>
                 <IconButton sx={{ bgcolor: isDark ? '#333' : 'white', boxShadow: '0 5px 15px rgba(0,0,0,0.1)', color: '#23BEEE' }}>
                   <PlayArrowIcon sx={{ transform: isRtl ? 'rotate(180deg)' : 'none' }} />
@@ -166,11 +169,11 @@ const Hero = () => {
                     <Avatar src="/teacher_avatar.jpg" sx={{ width: { xs: 32, md: 40 }, height: { xs: 32, md: 40 } }} />
                   </Badge>
                   <Box>
-                    <Typography sx={{ fontWeight: 700, color: '#fff', fontSize: { xs: '0.65rem', md: '0.85rem' }, lineHeight: 1.2 }}>User Experience Class</Typography>
-                    <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: { xs: '0.55rem', md: '0.7rem' } }}>Today at 12.00 PM</Typography>
-                  </Box>
+                    <Typography sx={{ fontWeight: 700, color: '#fff', fontSize: { xs: '0.65rem', md: '0.85rem' }, lineHeight: 1.2 }}>{t('user')}</Typography>
+                    <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: { xs: '0.55rem', md: '0.7rem' } }}>{t('time')}</Typography>
+                  </Box> 
                 </Stack>
-                <Button fullWidth variant="contained" sx={{ bgcolor: '#D8587E', borderRadius: '15px', py: { xs: 0.6, md: 1 }, textTransform: 'none', fontSize: { xs: '0.6rem', md: '0.8rem' }, fontWeight: 600, '&:hover': { bgcolor: '#c24d6f' }, boxShadow: 'none' }}>Join Now</Button>
+                <Button fullWidth variant="contained" sx={{ bgcolor: '#D8587E', borderRadius: '15px', py: { xs: 0.6, md: 1 }, textTransform: 'none', fontSize: { xs: '0.6rem', md: '0.8rem' }, fontWeight: 600, '&:hover': { bgcolor: '#c24d6f' }, boxShadow: 'none' }}>{t('join_free')}</Button>
               </Box>
             </MotionBox>
 
@@ -181,8 +184,12 @@ const Hero = () => {
                   <CalendarMonthIcon sx={{ fontSize: { xs: '1rem', md: '1.2rem' } }} />
                 </Avatar>
                 <Box>
-                  <Typography sx={{ fontWeight: 800, fontSize: { xs: '0.75rem', md: '0.9rem' }, color: '#fff', lineHeight: 1 }}>250K</Typography>
-                  <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: { xs: '0.55rem', md: '0.65rem' } }}>Assistant</Typography>
+
+
+
+
+                  <Typography sx={{ fontWeight: 800, fontSize: { xs: '0.75rem', md: '0.9rem' }, color: '#fff', lineHeight: 1 }}>{t('250K')}</Typography>
+                  <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: { xs: '0.55rem', md: '0.65rem' } }}>{t('assistant')}</Typography>
                 </Box>
               </Box>
             </MotionBox>
@@ -202,8 +209,8 @@ const Hero = () => {
                   <EmailIcon sx={{ fontSize: { xs: '0.85rem', md: '1.1rem' } }} />
                 </Avatar>
                 <Box>
-                  <Typography sx={{ fontWeight: 700, fontSize: { xs: '0.7rem', md: '0.85rem' }, color: '#fff' }}>Congratulations</Typography>
-                  <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: { xs: '0.55rem', md: '0.7rem' } }}>Admission completed</Typography>
+                  <Typography sx={{ fontWeight: 700, fontSize: { xs: '0.7rem', md: '0.85rem' }, color: '#fff' }}>{t('congratulations')}</Typography>
+                  <Typography sx={{ color: 'rgba(255, 255, 255, 0.7)', fontSize: { xs: '0.55rem', md: '0.7rem' } }}>{t('admission_completed')}</Typography>
                 </Box>
               </Box>
             </MotionBox>

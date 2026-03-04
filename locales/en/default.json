@@ -8,11 +8,17 @@
     "signup": "Sign Up"
   },
   "hero": {
-    "desc": "Ta'limHub - is a platform that helps you to learn anything from anywhere.",
+    "250K": "250K",
+    "admission_completed": "Admission completed",
+    "assistant": "Assistant",
+    "congratulations": "Congratulations",
+    "desc": "Ta'limHub - это платформа, которая помогает вам учиться чему угодно из любой точки.",
     "join_free": "Join for free",
     "much": "much easier",
     "online": "online",
     "studying": "Studying",
-    "watch_video": "Watch how it works"
+    "time": "Today at 12.00 PM",
+    "user": "User Experience Class",
+    "watch_video": "Смотрите, как это работает"
   }
 }

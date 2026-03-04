@@ -8,11 +8,17 @@
     "signup": "Ro'yxatdan o'tish"
   },
   "hero": {
-    "desc": "Ta'limHub - bu sizga har qanday narsani har qanday joydan o'rganishga yordam beradigan platforma.",
+    "250K": "250K",
+    "admission_completed": "Qabul tugatildi",
+    "assistant": "Yordamchi",
+    "congratulations": "Tabriklaymiz",
+    "desc": "Ta'limHub - bu sizga har qanday narsani har joydan o'rganishga yordam beradigan platforma.",
     "join_free": "Bepul qo'shiling",
     "much": "ancha osonroq",
     "online": "Onlayn",
     "studying": "o'qish",
+    "time": "Bugun soat 12:00",
+    "user": "Foydalanuvchi Tajribasi Darslari",
     "watch_video": "Qanday ishlashini tomosha qiling"
   }
 }
