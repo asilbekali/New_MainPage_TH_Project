@@ -1,68 +1,76 @@
-import TiltedCard from '@/components/TiltedCard';
+"use client";
 
-const Whatth = () => {
+import TiltedCard from "@/components/TiltedCard";
+
+const WhatSection = () => {
   return (
-    <section className="w-full py-20 px-6 bg-gray-900 text-white flex flex-col items-center">
-      {/* Yuqori qism: Sarlavha va Tavsif */}
-      <div className="max-w-4xl text-center mb-16">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">
-          What is <span className="text-blue-400">TOTC?</span>
+    <section className="w-full py-24 px-6 bg-gray-900 text-white flex flex-col items-center">
+      
+      {/* Header */}
+      <div className="max-w-4xl text-center mb-20">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          Two Sides. <span className="text-blue-400">One Intelligent Platform.</span>
         </h2>
         <p className="text-gray-400 text-lg leading-relaxed">
-          TOTC is a platform that allows educators to create online classes whereby they can 
-          store the course materials online; manage assignments, quizzes and exams; monitor 
-          due dates; grade results and provide students with feedback all in one place.
+          Ta’limHub connects educators and students in one AI-powered ecosystem.
+          Teach globally. Learn without language barriers. Everything in one place.
         </p>
       </div>
 
-      {/* Pastki qism: Ikkita Tilted Karta */}
+      {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full max-w-6xl justify-items-center">
-        
-        {/* O'qituvchilar uchun TiltedCard */}
+
+        {/* For Educators */}
         <TiltedCard
-          imageSrc="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80"
-          altText="For Instructors"
-          captionText="Instructors Dashboard"
-          containerHeight="400px"
+          imageSrc="./onlineT.jpg"
+          altText="For Educators"
+          captionText="Instructor Dashboard"
+          containerHeight="420px"
           containerWidth="100%"
-          imageHeight="400px"
+          imageHeight="420px"
           imageWidth="100%"
           rotateAmplitude={10}
-          scaleOnHover={1.03}
+          scaleOnHover={1.05}
           showMobileWarning={false}
           displayOverlayContent
           overlayContent={
-            <div className="flex flex-col items-center justify-center h-full bg-black/40 rounded-3xl">
-              <h3 className="text-2xl md:text-3xl font-bold mb-6 uppercase tracking-wider text-white">
-                For Instructors
+            <div className="flex flex-col items-center justify-center h-full bg-black/50 rounded-3xl p-8 text-center">
+              <h3 className="text-3xl font-bold mb-6 uppercase tracking-wide">
+                For Educators
               </h3>
-              <button className="px-8 py-3 border-2 border-white/50 rounded-full hover:bg-white hover:text-black transition-all duration-300 font-medium text-white">
-                Enter access code
+              <p className="text-gray-300 mb-6">
+                Create courses, manage students, and expand globally with AI dubbing.
+              </p>
+              <button className="px-8 py-3 border border-white/50 rounded-full hover:bg-white hover:text-black transition-all duration-300">
+                Start Teaching
               </button>
             </div>
           }
         />
 
-        {/* Talabalar uchun TiltedCard */}
+        {/* For Students */}
         <TiltedCard
-          imageSrc="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80"
+          imageSrc="./onlineS.jpg"
           altText="For Students"
-          captionText="Students Learning"
-          containerHeight="400px"
+          captionText="Student Learning"
+          containerHeight="420px"
           containerWidth="100%"
-          imageHeight="400px"
+          imageHeight="420px"
           imageWidth="100%"
           rotateAmplitude={10}
-          scaleOnHover={1.03}
+          scaleOnHover={1.05}
           showMobileWarning={false}
           displayOverlayContent
           overlayContent={
-            <div className="flex flex-col items-center justify-center h-full bg-black/40 rounded-3xl">
-              <h3 className="text-2xl md:text-3xl font-bold mb-6 uppercase tracking-wider text-white">
+            <div className="flex flex-col items-center justify-center h-full bg-black/50 rounded-3xl p-8 text-center">
+              <h3 className="text-3xl font-bold mb-6 uppercase tracking-wide">
                 For Students
               </h3>
-              <button className="px-8 py-3 bg-blue-500 hover:bg-blue-600 rounded-full transition-all duration-300 font-medium text-white">
-                Start a class today
+              <p className="text-gray-300 mb-6">
+                Access global courses in your native language powered by AI dubbing.
+              </p>
+              <button className="px-8 py-3 bg-blue-500 hover:bg-blue-600 rounded-full transition-all duration-300">
+                Start Learning
               </button>
             </div>
           }
@@ -73,4 +81,4 @@ const Whatth = () => {
   );
 };
 
-export default Whatth;
+export default WhatSection;
