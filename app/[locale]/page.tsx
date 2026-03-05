@@ -3,14 +3,15 @@
 import Hero from "@/components/hero";
 import AboutSection from "./aboutus";
 import WhatSection from "./whatth";
-import FeaturesSection from "./feature";
+import FeaturesSection from "./features";
+import Footer from "./footer";
 
 
 export default function Home() {
   return (
     <main>
       {/* Har bir seksiyaga navigatsiya uchun ID beramiz */}
-      <section id="hero">
+      <section className="mb-[100px]" id="hero">
         <Hero />
       </section>
       
@@ -24,6 +25,10 @@ export default function Home() {
       
       <section id="features">
         <FeaturesSection />
+      </section>
+
+      <section id="footer">
+        <Footer />
       </section>
     </main>
   );

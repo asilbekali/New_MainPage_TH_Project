@@ -1,9 +1,11 @@
 {
   "header": {
+    "aboutus": "Hakkımızda",
     "blog": "Blog",
     "career": "Kariyer",
+    "contact": "İletişim",
     "course": "Kurslar",
-    "home": "Hakkımızda",
+    "home": "Ana Sayfa",
     "login": "Giriş Yap",
     "signup": "Kayıt Ol"
   },

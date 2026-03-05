@@ -31,7 +31,7 @@ export default async function RootLayout({
       <body  className={`${geistSans.variable} ${geistMono.variable} antialiased container2`}>
         <NextIntlClientProvider messages={messages} locale={locale} >
           <ResponsiveAppBar />
-          <main  style={{ paddingTop: '80px' }}> 
+          <main className='mt-[30px]' style={{ paddingTop: '80px' }}> 
             {children}
           </main>
         </NextIntlClientProvider>

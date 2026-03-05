@@ -1,9 +1,11 @@
 {
   "header": {
+    "aboutus": "О нас",
     "blog": "Блог",
     "career": "Карьера",
+    "contact": "Contact",
     "course": "Курсы",
-    "home": "О нас",
+    "home": "Home",
     "login": "Log In",
     "signup": "Sign Up"
   },

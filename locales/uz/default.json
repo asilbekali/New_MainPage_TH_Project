@@ -1,9 +1,11 @@
 {
   "header": {
+    "aboutus": "Biz haqimizda",
     "blog": "Blog",
     "career": "Karyera",
+    "contact": "Aloqa",
     "course": "Kurslar",
-    "home": "Biz haqimizda",
+    "home": "Bosh sahifa",
     "login": "Kirish",
     "signup": "Ro'yxatdan o'tish"
   },

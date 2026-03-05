@@ -29,10 +29,10 @@ function ResponsiveAppBar() {
 
   // Linklarni ID larga moslab chiqdim
   const pages = [
-    { name: t('home'), link: 'aboutus' },
-    { name: t('course'), link: 'courses' },
-    { name: t('career'), link: 'career' },
-    { name: t('blog'), link: 'blog' },
+    { name: t('home'), link: 'hero' },
+    { name: t('aboutus'), link: 'aboutus' },
+    { name: t('course'), link: 'features' },
+    { name: t('contact'), link: 'footer' },
   ];
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);

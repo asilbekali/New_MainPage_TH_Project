@@ -1,9 +1,11 @@
 {
   "header": {
+    "aboutus": "About Us",
     "blog": "Blog",
     "career": "Career",
+    "contact": "Contact",
     "course": "Courses",
-    "home": "About Us",
+    "home": "Home",
     "login": "Log In",
     "signup": "Sign Up"
   },
