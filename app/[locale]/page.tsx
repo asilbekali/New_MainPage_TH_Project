@@ -10,8 +10,7 @@ import Footer from "./footer";
 export default function Home() {
   return (
     <main>
-      {/* Har bir seksiyaga navigatsiya uchun ID beramiz */}
-      <section className="mb-[100px]" id="hero">
+      <section className="mb-25" id="hero">
         <Hero />
       </section>
       
