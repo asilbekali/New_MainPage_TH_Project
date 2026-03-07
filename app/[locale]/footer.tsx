@@ -22,20 +22,27 @@ const Footer = () => {
     setStatus("idle");
 
     const formData = new FormData(e.currentTarget);
-    const name = formData.get("name");
-    const phone = formData.get("phone");
-    const email = formData.get("email");
+    const fullNameRaw = (formData.get("name") as string) || "";
+    const phone = (formData.get("phone") as string) || "";
+    const email = (formData.get("email") as string) || "";
+
+    // Backend kutayotgan firstName va lastName ga ajratish
+    const nameParts = fullNameRaw.trim().split(" ");
+    const firstName = nameParts[0] || "Mijoz";
+    const lastName = nameParts.slice(1).join(" ") || " ";
 
     try {
+      // Siz yaratgan /api/lead endpointiga so'rov yuboramiz
       const response = await fetch("/api/lead", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name,
+          firstName,
+          lastName,
           phone,
-          email,
+          email, // Ixtiyoriy, agar backendda ishlatsangiz
         }),
       });
 
@@ -46,9 +53,11 @@ const Footer = () => {
         setStatus("error");
       }
     } catch (error) {
+      console.error("Yuborishda xatolik:", error);
       setStatus("error");
     } finally {
       setLoading(false);
+      // 3 soniyadan keyin xabarni o'chirish
       setTimeout(() => setStatus("idle"), 3000);
     }
   };
@@ -58,7 +67,8 @@ const Footer = () => {
       <div className="mx-auto max-w-7xl">
         <div className="overflow-hidden rounded-[32px] border border-white/10 bg-white/5 backdrop-blur-xl">
           <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr]">
-            {/* Left Content */}
+            
+            {/* Chap tomon: Ma'lumotlar */}
             <div className="relative p-8 sm:p-10 lg:p-14">
               <div className="absolute left-0 top-0 h-40 w-40 rounded-full bg-cyan-400/10 blur-3xl" />
               <div className="absolute bottom-0 right-0 h-40 w-40 rounded-full bg-violet-500/10 blur-3xl" />
@@ -78,9 +88,7 @@ const Footer = () => {
                       className="h-10 w-10 object-contain"
                     />
                   </div>
-
                   <div className="h-10 w-px bg-white/10" />
-
                   <div>
                     <h2 className="text-2xl font-semibold tracking-wide sm:text-3xl">
                       Ta&apos;limHub
@@ -99,8 +107,7 @@ const Footer = () => {
                 <h3 className="max-w-xl text-3xl font-semibold leading-tight sm:text-4xl">
                   Start your future
                   <span className="bg-gradient-to-r from-cyan-300 via-sky-300 to-violet-300 bg-clip-text text-transparent">
-                    {" "}
-                    stronger today
+                    {" "}stronger today
                   </span>
                 </h3>
 
@@ -112,29 +119,24 @@ const Footer = () => {
 
                 <div className="mt-8 grid gap-3 sm:grid-cols-2">
                   <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
-                    <p className="text-sm font-medium text-white">
-                      Quick Contact
-                    </p>
+                    <p className="text-sm font-medium text-white">Quick Contact</p>
                     <p className="mt-1 text-xs leading-6 text-slate-400">
                       Our team will contact you to provide information about the 
                       platform and opportunities.
                     </p>
                   </div>
-
                   <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-4">
-                    <p className="text-sm font-medium text-white">
-                      Student-centric Approach
-                    </p>
+                    <p className="text-sm font-medium text-white">Student-centric</p>
                     <p className="mt-1 text-xs leading-6 text-slate-400">
                       User-friendly UX, clear direction, and a highly beneficial 
-                      learning flow for every student.
+                      learning flow.
                     </p>
                   </div>
                 </div>
               </motion.div>
             </div>
 
-            {/* Right Form */}
+            {/* O'ng tomon: Telegramga yuborish formasi */}
             <div className="border-t border-white/10 p-8 sm:p-10 lg:border-l lg:border-t-0 lg:p-14">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
@@ -145,8 +147,7 @@ const Footer = () => {
                 <div className="mb-6">
                   <h4 className="text-2xl font-semibold">Contact Us</h4>
                   <p className="mt-2 text-sm leading-6 text-slate-400">
-                    Leave your name, phone number, and email address. 
-                    We will get back to you as soon as possible.
+                    Leave your name and phone number. We will get back to you as soon as possible.
                   </p>
                 </div>
 
@@ -166,6 +167,7 @@ const Footer = () => {
                     <input
                       required
                       name="phone"
+                      type="tel"
                       placeholder="Phone Number"
                       className="w-full bg-transparent text-sm text-white placeholder:text-slate-500 outline-none"
                     />
@@ -200,14 +202,10 @@ const Footer = () => {
 
                   <div className="min-h-[20px] pt-1 text-center">
                     {status === "success" && (
-                      <p className="text-xs text-cyan-300">
-                        Success! We will contact you shortly.
-                      </p>
+                      <p className="text-xs text-cyan-300">✅ Success! We will contact you shortly.</p>
                     )}
                     {status === "error" && (
-                      <p className="text-xs text-rose-300">
-                        Something went wrong. Please try again.
-                      </p>
+                      <p className="text-xs text-rose-400">❌ Something went wrong. Please try again.</p>
                     )}
                   </div>
 
@@ -223,23 +221,12 @@ const Footer = () => {
         {/* Bottom area */}
         <div className="mt-8 flex flex-col items-center justify-between gap-5 border-t border-white/10 pt-6 text-sm text-slate-400 md:flex-row">
           <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
-            <a href="#" className="transition-colors hover:text-white">
-              About
-            </a>
-            <a href="#" className="transition-colors hover:text-white">
-              Courses
-            </a>
-            <a href="#" className="transition-colors hover:text-white">
-              Careers
-            </a>
-            <a href="#" className="transition-colors hover:text-white">
-              Privacy Policy
-            </a>
-            <a href="#" className="transition-colors hover:text-white">
-              Terms & Conditions
-            </a>
+            <a href="#" className="transition-colors hover:text-white">About</a>
+            <a href="#" className="transition-colors hover:text-white">Courses</a>
+            <a href="#" className="transition-colors hover:text-white">Careers</a>
+            <a href="#" className="transition-colors hover:text-white">Privacy Policy</a>
+            <a href="#" className="transition-colors hover:text-white">Terms & Conditions</a>
           </div>
-
           <div className="flex items-center gap-2 text-xs text-slate-500">
             <Send className="h-3.5 w-3.5" />
             <span>© {new Date().getFullYear()} Ta&apos;limHub Technologies</span>
