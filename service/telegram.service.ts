@@ -4,6 +4,7 @@ interface UserData {
   firstName: string;
   lastName: string;
   phone: string;
+  email: string;
   timestamp: string;
 }
 
@@ -24,8 +25,8 @@ export async function handleCallback(callbackQuery: any) {
   const chatId = callbackQuery.message.chat.id;
   const messageText = callbackQuery.message.text;
 
-  // Ma'lumotlarni ajratib olamiz: adminId|phone|fullName
-  const [adminId, phone, fullName] = callbackData.split("|");
+  // Ma'lumotlarni ajratib olamiz: adminId|phone|fullName|email
+  const [adminId, phone, fullName, email] = callbackData.split("|");
   const adminName = getAdminName(adminId);
 
   // Admin xabarini yangilash
@@ -76,6 +77,7 @@ export async function handleCallback(callbackQuery: any) {
       `👨‍💻 <b>Admin:</b> <code>${adminName}</code>\n` +
       `👤 <b>Mijoz ismi:</b> <b>${fullName}</b>\n` +
       `📞 <b>Mijoz tel:</b> <code>${phone}</code>\n` +
+      `✉️ <b>Mijoz email:</b> <code>${email}</code>\n` +
       `⏰ <b>Vaqt:</b> ${callTime}\n\n` +
       `📊 <b>Holat:</b> #Boglanildi`;
 
@@ -118,6 +120,7 @@ export async function sendTelegramMessage(user: UserData) {
     `───────────────────\n\n` +
     `👤 <b>Mijoz ismi:</b> ${fullName}\n` +
     `📞 <b>Tel:</b> <code>${user.phone}</code>\n` +
+    `✉️ <b>Email:</b> <code>${user.email}</code>\n` +
     `📅 <b>Sana:</b> ${user.timestamp}\n\n` +
     `<b>biriktirilgan admin:</b> ${admin.name}`;
 
@@ -127,6 +130,7 @@ export async function sendTelegramMessage(user: UserData) {
     `───────────────────\n\n` +
     `👤 <b>Ism:</b> <b>${fullName}</b>\n` +
     `📞 <b>Tel:</b> <code>${user.phone}</code>\n` +
+    `✉️ <b>Email:</b> <code>${user.email}</code>\n` +
     `📅 <b>Sana:</b> ${user.timestamp}\n\n` +
     `👨‍💻 <b>Mas'ul admin:</b> <u>${admin.name}</u>\n\n` +
     `<i>Iltimos, mijoz bilan tezroq bog'laning!</i>`;

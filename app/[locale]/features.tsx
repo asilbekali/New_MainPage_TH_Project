@@ -47,7 +47,7 @@ const items: ChromaItem[] = [
 
 const FeaturesSection = () => {
   return (
-    <section className="w-full bg-[#16213b] py-20 md:py-28 px-4 md:px-6 text-white">
+    <section className="w-full  py-20 md:py-28 px-4 md:px-6 text-white">
       <div className="max-w-7xl mx-auto">
         {/* Title */}
         <div className="text-center mb-12 md:mb-16">

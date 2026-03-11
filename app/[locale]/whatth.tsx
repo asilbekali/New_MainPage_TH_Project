@@ -4,7 +4,7 @@ import TiltedCard from "@/components/TiltedCard";
 
 const WhatSection = () => {
   return (
-    <section className="w-full py-24 px-6 bg-gray-900 text-white flex flex-col items-center overflow-hidden relative">
+    <section className="w-full py-24 px-6 text-white flex flex-col items-center overflow-hidden relative">
       {/* Background Glows */}
       <div className="absolute top-1/4 left-10 w-96 h-96 bg-purple-900/10 rounded-full blur-[128px] pointer-events-none"></div>
       <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-blue-900/10 rounded-full blur-[128px] pointer-events-none"></div>

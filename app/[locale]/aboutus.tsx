@@ -8,7 +8,7 @@ import { Globe, Brain, UserCheck, Languages } from "lucide-react";
 
 const AboutSection = () => {
   return (
-    <section className="relative w-full min-h-screen flex flex-col md:flex-row items-center justify-between px-10 py-20 bg-[#16213b] text-white overflow-hidden">
+    <section className="relative w-full min-h-screen flex flex-col md:flex-row items-center justify-between px-10 py-20  text-white overflow-hidden">
       
       {/* Background glow effects - Retained */}
       <div className="absolute top-1/4 left-10 w-96 h-96 bg-purple-900/10 rounded-full blur-[128px] pointer-events-none"></div>
@@ -20,7 +20,7 @@ const AboutSection = () => {
           Learn from Anywhere,<br />
           <span className="text-blue-400">Understand Everything.</span>
         </h2>
-        <p className="text-xl text-gray-400 mb-10 leading-relaxed max-w-lg">
+        <p className="text-xl text-white mb-10 leading-relaxed max-w-lg">
           Ta’limHub makes global education accessible in your native language. 
           Unlock knowledge from world-class educators, instantly translated 
           and dubbed by AI.
