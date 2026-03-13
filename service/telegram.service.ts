@@ -169,3 +169,7 @@ export async function sendTelegramMessage(user: UserData) {
 
   return await res.json();
 }
+
+
+
+// telegram bot ishlamayapti sababi admin aloqaga chiqdim tugmasini bosganda controller channelga jo'natmayapti va adminga ham xabar yubormayapti, shuning uchun callbackni qayta ishlash funksiyasini tekshirib chiqing va kerak bo'lsa loglarni qo'shing.
