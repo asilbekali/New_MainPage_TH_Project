@@ -9,6 +9,7 @@ export async function POST(req: NextRequest) {
     const update = await req.json();
 
     if (update.callback_query) {
+      console.log("📩 Callback Query qabul qilindi:", update.callback_query.data);
       // Callback kelganda await bilan kutish shart
       await handleCallback(update.callback_query);
     }
