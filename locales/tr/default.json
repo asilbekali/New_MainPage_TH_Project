@@ -22,5 +22,147 @@
     "time": "Bugün saat 12.00'de",
     "user": "Kullanıcı Deneyimi Sınıfı",
     "watch_video": "Nasıl çalıştığını izle"
+  },
+  "about": {
+    "titleLine1": "En iyilerden öğrenin,",
+    "titleLine2": "dünyayı keşfedin",
+    "description": "Ta'limHub küresel eğitimi ana dilinizde erişilebilir hale getirir. Dünyanın en iyi eğitmenlerinden gelen bilgileri yapay zeka destekli çeviri ve dublaj ile keşfedin.",
+    "startLearning": "Ücretsiz öğrenmeye başlayın",
+    "exploreCourses": "Kursları keşfedin",
+    "card1": {
+      "title": "Yapay Zeka Destekli Dublaj",
+      "desc": "Küresel bilginin kapılarını açın. Ivy League ve dünyanın önde gelen üniversitelerindeki kurslara, gelişmiş yapay zeka ile ana dilinizde seslendirilmiş şekilde erişin.",
+      "button": "Dilini seç"
+    },
+    "card2": {
+      "title": "Sınırsız Bilgi",
+      "desc": "Sadece izlemeyin, gerçekten öğrenin. 50'den fazla dilde doğal yapay zeka seslendirmesiyle en iyi içeriklere erişin.",
+      "button": "Öğrenmeye başla"
+    },
+    "card3": {
+      "title": "Akıllı Öğrenme Yolları",
+      "desc": "Eğitiminiz size özel. Gerçek zamanlı ilerleme takibi, yapay zeka destekli kurs önerileri ve kişisel gelişim yolları ile öğrenin.",
+      "button": "İlerlemeyi takip et"
+    }
+  },
+  "whatt": {
+    "titleLine1": "İki Taraf.",
+    "titleLine2": "Tek Akıllı Platform.",
+    "description": "Ta’limHub, eğitmenleri ve öğrencileri yapay zeka destekli tek bir ekosistemde buluşturur.",
+    "educators": {
+      "alt": "Eğitmenler İçin",
+      "title": "Eğitmenler İçin",
+      "desc": "Küresel ölçekte öğretin, dublajı otomatikleştirin. Yapay zeka destekli dublaj teknolojisiyle erişiminizi genişletin.",
+      "ratingLabel": "(Puanlama)",
+      "button": "Öğretmeye Başla"
+    },
+    "students": {
+      "alt": "Öğrenciler İçin",
+      "title": "Öğrenciler İçin",
+      "desc": "Küresel kurslar, yerel ses. Dünya standartlarındaki eğitime ana dilinizde erişin.",
+      "ratingLabel": "10k+ öğrenci tarafından",
+      "button": "Öğrenmeye Başla"
+    }
+  },
+  "feature": {
+    "titleLine1": "Gerçek öğrenme için",
+    "titleHighlight": "tasarlandı",
+    "description": "Ta’limHub, canlı eğitim, tekrar izleme ve yapay zeka dil teknolojisini bir araya getirerek daha hızlı öğrenmenize ve daha uzun süre hatırlamanıza yardımcı olur.",
+    "rightTitleLine1": "Canlı öğrenin. İstediğiniz zaman tekrar izleyin.",
+    "rightTitleHighlight": "Her dilde anlayın.",
+    "rightDescription": "Her özellik sizi sadece izlemekten gerçek beceriye taşımak için tasarlandı. Daha az karmaşa, daha fazla ilerleme.",
+    "points": {
+      "live": {
+        "title": "Canlı çevrimiçi dersler",
+        "desc": "Anında soru sorun, birlikte pratik yapın ve düzenli bir şekilde öğrenin."
+      },
+      "replayGroup": {
+        "title": "Canlı grup derslerini tekrar izleyin",
+        "desc": "Her grup dersi kaydedilir, böylece istediğiniz zaman yeniden izleyebilir ve önemli ayrıntıları kaçırmazsınız."
+      },
+      "autoRecord": {
+        "title": "Otomatik kayıt ve tekrar izleme",
+        "desc": "İhtiyacınız olduğunda dersleri tekrar izleyin — tekrar ve not alma için mükemmeldir."
+      },
+      "aiDubbing": {
+        "title": "Yapay zeka dublajı (çok dilli)",
+        "desc": "Dil artık bir engel değil — çeviriye değil, anlama odaklanın."
+      }
+    },
+    "bottomNote": "Amaç: her öğrencinin konuyu net anlamasına, düzenli pratik yapmasına ve öğrenmeyi gerçek beceriye dönüştürmesine yardımcı olmak.",
+    "grid": {
+      "card1": {
+        "title": "Canlı Etkileşimli Dersler",
+        "subtitle": "Eğitmenlerle gerçek zamanlı oturumlara katılın ve uygulayarak öğrenin.",
+        "handle": "Canlı"
+      },
+      "card2": {
+        "title": "Kişiselleştirilmiş İlerleme",
+        "subtitle": "Hedeflerinize uygun akıllı takip ve öneriler.",
+        "handle": "Kişisel"
+      },
+      "card3": {
+        "title": "Topluluk ve Mentorlar",
+        "subtitle": "Geri bildirim alın ve birlikte daha hızlı gelişin.",
+        "handle": "Destek"
+      },
+      "card4": {
+        "title": "Yapay Zeka Dublajı",
+        "subtitle": "Dersleri kendi dilinizde anlayın — engelsiz.",
+        "handle": "Çok dilli"
+      }
+    }
+  },
+  "footer": {
+    "badge": "Öğrenmenin geleceği burada başlıyor",
+    "titleLine1": "Eğitimin bir sonraki bölümünü",
+    "titleHighlight": "inşa edin",
+    "titleLine2": "Ta'limHub ile",
+    "description": "Ta'limHub, öğrencilerin, eğitmenlerin ve modern kurumların ölçeklenebilir dijital öğrenme deneyimleri, akıllı araçlar ve yapay zeka destekli çözümler aracılığıyla bağlantı kurmasına yardımcı olan bir eğitim ekosistemidir.",
+    "cards": {
+      "global": {
+        "title": "Küresel Öğrenme",
+        "text": "Sınırlar olmadan eğitime erişim"
+      },
+      "trusted": {
+        "title": "Güvenilir Platform",
+        "text": "Ciddi gelişim için oluşturuldu"
+      },
+      "ai": {
+        "title": "Yapay Zeka Özellikleri",
+        "text": "Daha akıllı ve daha hızlı öğrenme"
+      }
+    },
+    "location": "Taşkent, Özbekistan",
+    "form": {
+      "title": "İletişime geçelim",
+      "description": "Bilgilerinizi bırakın, ekibimiz öğrenme yolculuğunuz için doğru yönlendirmeyle sizinle iletişime geçsin.",
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "phone": "+998901234567",
+      "email": "E-posta adresi",
+      "send": "Talep Gönder",
+      "sending": "Gönderiliyor...",
+      "success": "Talebiniz başarıyla gönderildi ✅",
+      "error": "Bir şeyler yanlış gitti. Lütfen tekrar deneyin ❌"
+    },
+    "stats": {
+      "ai": {
+        "number": "AI",
+        "label": "POWERED"
+      },
+      "access": {
+        "number": "24/7",
+        "label": "ACCESS"
+      },
+      "learning": {
+        "number": "SMART",
+        "label": "LEARNING"
+      }
+    },
+    "bottom": {
+      "copyright": "© 2026 Ta'limHub. Tüm hakları saklıdır.",
+      "tagline": "Eğitimin geleceği için tasarlandı"
+    }
   }
 }

@@ -22,5 +22,148 @@
     "time": "Bugun soat 12:00",
     "user": "Foydalanuvchi Tajribasi Darslari",
     "watch_video": "Qanday ishlashini tomosha qiling"
+  },
+  "about": {
+    "test": "هذا نص تجريبي",
+    "titleLine1": "Eng yaxshilaridan o‘rganing,",
+    "titleLine2": "dunyoni kashf eting",
+    "description": "Ta'limHub sizga dunyo ta'limini ona tilingizda o‘rganish imkonini beradi. Jahon darajasidagi ustozlardan bilimlarni AI yordamida tarjima va dubbing qilingan holda oling.",
+    "startLearning": "Bepul o‘rganishni boshlang",
+    "exploreCourses": "Kurslarni ko‘rish",
+    "card1": {
+      "title": "AI yordamidagi dubbing",
+      "desc": "Global bilimlarni oching. Ivy League va dunyoning eng kuchli universitetlari kurslarini ona tilingizda AI ovozi bilan tinglang.",
+      "button": "Tilingizni tanlang"
+    },
+    "card2": {
+      "title": "Chegarasiz bilim",
+      "desc": "Shunchaki tomosha qilmang, chuqur o‘rganing. 50 dan ortiq tillarda tabiiy AI voiceover orqali eng yaxshi kurslardan foydalaning.",
+      "button": "O‘rganishni boshlang"
+    },
+    "card3": {
+      "title": "Aqlli o‘quv yo‘llari",
+      "desc": "Ta'lim siz uchun shaxsiylashadi. Real vaqt progress kuzatuvi, AI tavsiya qiladigan kurslar va rivojlanish yo‘llari bilan o‘qing.",
+      "button": "Progressni kuzatish"
+    }
+  },
+  "whatt": {
+    "titleLine1": "Ikki tomon.",
+    "titleLine2": "Bitta aqlli platforma.",
+    "description": "Ta’limHub o‘qituvchilar va talabalarni bitta AI-powered ekotizimda birlashtiradi.",
+    "educators": {
+      "alt": "O‘qituvchilar uchun",
+      "title": "O‘qituvchilar uchun",
+      "desc": "Global auditoriyaga dars bering, dubbingni avtomatik qiling. AI dubbing texnologiyasi orqali ta’sir doirangizni kengaytiring.",
+      "ratingLabel": "(Reyting)",
+      "button": "Dars berishni boshlang"
+    },
+    "students": {
+      "alt": "Talabalar uchun",
+      "title": "Talabalar uchun",
+      "desc": "Global kurslar, mahalliy ovoz. Jahon darajasidagi ta’limni o‘z ona tilingizda o‘rganing.",
+      "ratingLabel": "10k+ talabalar tomonidan",
+      "button": "O‘rganishni boshlang"
+    }
+  },
+  "feature": {
+    "titleLine1": "Haqiqiy ta'lim uchun",
+    "titleHighlight": "yaratilgan",
+    "description": "Ta’limHub jonli ta’lim, qayta ko‘rish va AI til texnologiyasini birlashtirib, tezroq o‘rganish va uzoqroq eslab qolishga yordam beradi.",
+    "rightTitleLine1": "Jonli o‘rganing. Istalgan payt qayta ko‘ring.",
+    "rightTitleHighlight": "Istalgan tilda tushuning.",
+    "rightDescription": "Har bir funksiya sizni shunchaki tomoshabindan haqiqiy ko‘nikmaga olib borish uchun yaratilgan. Kamroq chalkashlik, ko‘proq progress.",
+    "points": {
+      "live": {
+        "title": "Jonli onlayn darslar",
+        "desc": "Savollarni darhol bering, birga mashq qiling va tartibli tarzda o‘rganing."
+      },
+      "replayGroup": {
+        "title": "Jonli guruh darslarini qayta ko‘rish",
+        "desc": "Har bir guruh darsi yozib olinadi, shuning uchun siz istalgan payt qayta ko‘rib, muhim joylarni o‘tkazib yubormaysiz."
+      },
+      "autoRecord": {
+        "title": "Avtomatik yozib olish va qayta ko‘rish",
+        "desc": "Darslarni kerak bo‘lganda qayta ko‘ring — bu takrorlash va konspekt qilish uchun juda qulay."
+      },
+      "aiDubbing": {
+        "title": "AI dubbing (ko‘p tilli)",
+        "desc": "Til endi to‘siq emas — tarjimaga emas, ma’noga e’tibor qarating."
+      }
+    },
+    "bottomNote": "Maqsad: har bir talaba aniq tushunsin, muntazam mashq qilsin va ta’limni haqiqiy ko‘nikmaga aylantirsin.",
+    "grid": {
+      "card1": {
+        "title": "Jonli interaktiv darslar",
+        "subtitle": "O‘qituvchilar bilan real vaqtda darsga qo‘shiling va amaliy o‘rganing.",
+        "handle": "Jonli"
+      },
+      "card2": {
+        "title": "Shaxsiy progress",
+        "subtitle": "Maqsadlaringizga mos aqlli kuzatuv va tavsiyalar.",
+        "handle": "Shaxsiy"
+      },
+      "card3": {
+        "title": "Hamjamiyat va mentorlar",
+        "subtitle": "Fikr-mulohaza oling va birgalikda tezroq rivojlaning.",
+        "handle": "Yordam"
+      },
+      "card4": {
+        "title": "AI dubbing",
+        "subtitle": "Darslarni o‘z tilingizda tushuning — hech qanday to‘siqsiz.",
+        "handle": "Ko‘p tilli"
+      }
+    }
+  },
+  "footer": {
+    "badge": "Ta'lim kelajagi shu yerdan boshlanadi",
+    "titleLine1": "Ta'limning keyingi bobini",
+    "titleHighlight": "quring",
+    "titleLine2": "Ta'limHub bilan",
+    "description": "Ta'limHub — bu o‘quvchilar, ustozlar va zamonaviy ta’lim muassasalarini raqamli ta’lim tajribasi, aqlli vositalar va AI-powered yechimlar orqali bog‘laydigan ta’lim ekotizimi.",
+    "cards": {
+      "global": {
+        "title": "Global ta'lim",
+        "text": "Ta'limga chegaralarsiz kirish"
+      },
+      "trusted": {
+        "title": "Ishonchli platforma",
+        "text": "Jiddiy rivojlanish uchun qurilgan"
+      },
+      "ai": {
+        "title": "AI funksiyalar",
+        "text": "Aqlliroq va tezroq o‘rganish"
+      }
+    },
+    "location": "Toshkent, O‘zbekiston",
+    "form": {
+      "title": "Bog‘lanishga chiqaylik",
+      "description": "Ma’lumotlaringizni qoldiring va jamoamiz sizga ta’lim yo‘lingiz uchun mos yo‘nalish bilan bog‘lanadi.",
+      "firstName": "Ism",
+      "lastName": "Familiya",
+      "phone": "+998901234567",
+      "email": "Email manzil",
+      "send": "So‘rov yuborish",
+      "sending": "Yuborilmoqda...",
+      "success": "So‘rovingiz muvaffaqiyatli yuborildi ✅",
+      "error": "Nimadir xato ketdi. Iltimos, qayta urinib ko‘ring ❌"
+    },
+    "stats": {
+      "ai": {
+        "number": "AI",
+        "label": "POWERED"
+      },
+      "access": {
+        "number": "24/7",
+        "label": "ACCESS"
+      },
+      "learning": {
+        "number": "SMART",
+        "label": "LEARNING"
+      }
+    },
+    "bottom": {
+      "copyright": "© 2026 Ta'limHub. Barcha huquqlar himoyalangan.",
+      "tagline": "Ta'lim kelajagi uchun yaratilgan"
+    }
   }
 }

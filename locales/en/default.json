@@ -14,13 +14,156 @@
     "admission_completed": "Admission completed",
     "assistant": "Assistant",
     "congratulations": "Congratulations",
-    "desc": "Ta'limHub - это платформа, которая помогает вам учиться чему угодно из любой точки.",
+    "desc": "Ta'limHub is a platform that helps you learn anything from anywhere.",
     "join_free": "Join for free",
     "much": "much easier",
     "online": "online",
     "studying": "Studying",
     "time": "Today at 12.00 PM",
     "user": "User Experience Class",
-    "watch_video": "Смотрите, как это работает"
+    "watch_video": "Watch how it works"
+  },
+  "about": {
+    "test": "هذا نص تجريبي",
+    "titleLine1": "Learn from the best,",
+    "titleLine2": "discover the world",
+    "description": "Ta'limHub makes global education accessible in your native language. Unlock knowledge from world-class educators, instantly translated and dubbed by AI.",
+    "startLearning": "Start Learning for Free",
+    "exploreCourses": "Explore Courses",
+    "card1": {
+      "title": "AI-Powered Dubbing",
+      "desc": "Unlock global knowledge. Access top courses from Ivy League and world-class universities, instantly voiced in your native language by advanced AI.",
+      "button": "Find your Language"
+    },
+    "card2": {
+      "title": "Borderless Knowledge",
+      "desc": "Don't just watch, fully engage. Access over 50+ languages with native-level AI voiceover. Learn without limits from the very best.",
+      "button": "Start Learning"
+    },
+    "card3": {
+      "title": "Smart Learning Paths",
+      "desc": "Your education, personalized. Real-time progress tracking, AI-powered course recommendations, and personal development paths.",
+      "button": "Track Progress"
+    }
+  },
+  "whatt": {
+    "titleLine1": "Two Sides.",
+    "titleLine2": "One Intelligent Platform.",
+    "description": "Ta’limHub connects educators and students in one AI-powered ecosystem.",
+    "educators": {
+      "alt": "For Educators",
+      "title": "For Educators",
+      "desc": "Teach globally, dub automatically. Expand your reach with AI dubbing technology.",
+      "ratingLabel": "(Rating)",
+      "button": "Start Teaching"
+    },
+    "students": {
+      "alt": "For Students",
+      "title": "For Students",
+      "desc": "Global Courses, Local Sound. Access world-class education in your native language.",
+      "ratingLabel": "by 10k+ Students",
+      "button": "Start Learning"
+    }
+  },
+  "feature": {
+    "titleLine1": "Built for",
+    "titleHighlight": "Real Learning",
+    "description": "Ta’limHub blends live education, replays, and AI language technology to help you learn faster and remember longer.",
+    "rightTitleLine1": "Learn live. Replay anytime.",
+    "rightTitleHighlight": "Understand in any language.",
+    "rightDescription": "Every feature is designed to move you from “watching” to “skills”. Less confusion, more progress.",
+    "points": {
+      "live": {
+        "title": "Live online classes",
+        "desc": "Ask questions instantly, practice together, and learn with structure."
+      },
+      "replayGroup": {
+        "title": "Replay live group lessons",
+        "desc": "Every group class is recorded, so you can rewatch it anytime and never miss key details."
+      },
+      "autoRecord": {
+        "title": "Auto-record & replay",
+        "desc": "Rewatch lessons whenever you need — perfect for revision and note-taking."
+      },
+      "aiDubbing": {
+        "title": "AI dubbing (multi-language)",
+        "desc": "Language is no longer a blocker — focus on the meaning, not translation."
+      }
+    },
+    "bottomNote": "Goal: help every student understand clearly, practice consistently, and turn learning into real skill.",
+    "grid": {
+      "card1": {
+        "title": "Live Interactive Classes",
+        "subtitle": "Join real-time sessions with instructors and learn by doing.",
+        "handle": "Realtime"
+      },
+      "card2": {
+        "title": "Personalized Progress",
+        "subtitle": "Smart tracking + recommendations tailored to your goals.",
+        "handle": "Personalized"
+      },
+      "card3": {
+        "title": "Community & Mentors",
+        "subtitle": "Get feedback and grow faster together.",
+        "handle": "Support"
+      },
+      "card4": {
+        "title": "AI Dubbing",
+        "subtitle": "Understand lessons in your own language — no barriers.",
+        "handle": "Multilang"
+      }
+    }
+  },
+  "footer": {
+    "badge": "Future of Learning Starts Here",
+    "titleLine1": "Build the next chapter of",
+    "titleHighlight": "education",
+    "titleLine2": "with Ta'limHub",
+    "description": "Ta'limHub is an education ecosystem that helps learners, teachers, and modern institutions connect through scalable digital learning experiences, smart tools, and AI-powered solutions.",
+    "cards": {
+      "global": {
+        "title": "Global Learning",
+        "text": "Access education without borders"
+      },
+      "trusted": {
+        "title": "Trusted Platform",
+        "text": "Built for serious growth"
+      },
+      "ai": {
+        "title": "AI Features",
+        "text": "Smarter and faster learning"
+      }
+    },
+    "location": "Tashkent, Uzbekistan",
+    "form": {
+      "title": "Let's get in touch",
+      "description": "Leave your information and our team will contact you with the right guidance for your learning journey.",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "phone": "+998901234567",
+      "email": "Email Address",
+      "send": "Send Request",
+      "sending": "Sending...",
+      "success": "Your request has been sent successfully ✅",
+      "error": "Something went wrong. Please try again ❌"
+    },
+    "stats": {
+      "ai": {
+        "number": "AI",
+        "label": "POWERED"
+      },
+      "access": {
+        "number": "24/7",
+        "label": "ACCESS"
+      },
+      "learning": {
+        "number": "SMART",
+        "label": "LEARNING"
+      }
+    },
+    "bottom": {
+      "copyright": "© 2026 Ta'limHub. All rights reserved.",
+      "tagline": "Designed for the future of education"
+    }
   }
 }

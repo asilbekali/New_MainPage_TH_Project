@@ -166,7 +166,7 @@ const Hero = () => {
               <Box sx={{ ...glassStyle, p: { xs: 1.2, md: 2 }, borderRadius: { xs: 2, md: 3 }, minWidth: { xs: '150px', md: '230px' } }}>
                 <Stack direction="row" spacing={1} alignItems="center" mb={1}>
                   <Badge overlap="circular" anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }} variant="dot" sx={{ '& .MuiBadge-badge': { bgcolor: '#2ED47A', width: 8, height: 8, border: '1.5px solid white' } }}>
-                    <Avatar src="/teacher_avatar.jpg" sx={{ width: { xs: 32, md: 40 }, height: { xs: 32, md: 40 } }} />
+                    <Avatar src="/teacher.png" sx={{ width: { xs: 32, md: 40 }, height: { xs: 32, md: 40 } }} />
                   </Badge>
                   <Box>
                     <Typography sx={{ fontWeight: 700, color: '#fff', fontSize: { xs: '0.65rem', md: '0.85rem' }, lineHeight: 1.2 }}>{t('user')}</Typography>
