@@ -77,7 +77,7 @@ export async function handleCallback(callbackQuery: any) {
       `👨‍💻 <b>Admin:</b> <code>${adminName}</code>\n` +
       `👤 <b>Mijoz ismi:</b> <b>${fullName}</b>\n` +
       `📞 <b>Mijoz tel:</b> <code>${phone}</code>\n` +
-      `✉️ <b>Mijoz email:</b> <code>${email}</code>\n` +
+      `✉️ <b>Email:</b> <code>${email}</code>\n` +
       `⏰ <b>Vaqt:</b> ${callTime}\n\n` +
       `📊 <b>Holat:</b> #Boglanildi`;
 
@@ -120,8 +120,8 @@ export async function sendTelegramMessage(user: UserData) {
     `───────────────────\n\n` +
     `👤 <b>Mijoz ismi:</b> ${fullName}\n` +
     `📞 <b>Tel:</b> <code>${user.phone}</code>\n` +
-    `✉️ <b>Email:</b> <code>${user.email}</code>\n` +
     `📅 <b>Sana:</b> ${user.timestamp}\n\n` +
+    `✉️ <b>Email:</b> <code>${user.email}</code>\n` +
     `<b>biriktirilgan admin:</b> ${admin.name}`;
 
   // Adminga boradigan xabar
@@ -149,27 +149,34 @@ export async function sendTelegramMessage(user: UserData) {
   }
 
   // Adminga yuborish (Tugma ichiga adminId|phone|fullName)
-  const body = {
-    chat_id: Number(admin.id),
-    text: adminText,
-    parse_mode: "HTML",
-    reply_markup: {
-      inline_keyboard: [
-        [
-          {
-            text: "📞 Bog'landim (Tasdiqlash)",
-            callback_data: `${admin.id}|${user.phone}|${fullName}`,
-          },
-        ],
+  // sendTelegramMessage funksiyasi ichida:
+const body = {
+  chat_id: Number(admin.id),
+  text: adminText,
+  parse_mode: "HTML",
+  reply_markup: {
+    inline_keyboard: [
+      [
+        {
+          text: "📞 Bog'landim (Tasdiqlash)",
+          callback_data: `${admin.id}|${user.phone}|${fullName}|${user.email}`, 
+        },
       ],
-    },
-  };
+    ],
+  },
+};
+  
+
+console.log(body);
+
+  
 
   const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
+
   
   return await res.json();
 }
