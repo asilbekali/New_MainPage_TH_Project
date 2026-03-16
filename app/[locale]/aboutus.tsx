@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState } from "react";
 import CardSwap, { Card } from "@/components/cards";
 import { Globe, Brain, UserCheck, Languages } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
@@ -8,6 +9,16 @@ const AboutSection = () => {
   const t = useTranslations("about");
   const locale = useLocale();
   const isArabic = locale === "ar";
+
+  const [showComingSoon, setShowComingSoon] = useState(false);
+
+  const handleComingSoon = () => {
+    setShowComingSoon(true);
+
+    setTimeout(() => {
+      setShowComingSoon(false);
+    }, 2500);
+  };
 
   return (
     <section className="relative w-full flex flex-col md:flex-row items-center justify-between px-4 md:px-10 py-10 md:py-24 text-white">
@@ -29,16 +40,28 @@ const AboutSection = () => {
           </p>
         </div>
 
-        {/* Buttons layout o‘zgarmaydi */}
+        {/* Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 items-center justify-center md:justify-start">
-          <button className="w-full sm:w-auto px-10 py-4 bg-blue-600 hover:bg-blue-700 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg shadow-blue-600/20 transform hover:translate-y-[-2px]">
+          <button
+            onClick={handleComingSoon}
+            className="w-full sm:w-auto px-10 py-4 bg-blue-600 hover:bg-blue-700 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg shadow-blue-600/20 transform hover:translate-y-[-2px]"
+          >
             {t("startLearning")}
           </button>
 
-          <button className="w-full sm:w-auto px-10 py-4 border border-white/20 hover:bg-white/10 rounded-full text-lg font-semibold transition-all duration-300">
+          <button
+            onClick={handleComingSoon}
+            className="w-full sm:w-auto px-10 py-4 border border-white/20 hover:bg-white/10 rounded-full text-lg font-semibold transition-all duration-300"
+          >
             {t("exploreCourses")}
           </button>
         </div>
+
+        {showComingSoon && (
+          <p className="mt-4 text-cyan-300 text-sm font-medium animate-pulse">
+            Coming soon — our web platform is not ready yet.
+          </p>
+        )}
       </div>
 
       {/* Right Side - Interactive Card Stacks */}
@@ -79,7 +102,10 @@ const AboutSection = () => {
                 </div>
               </div>
 
-              <button className="w-full px-8 py-3.5 border border-white/40 rounded-full text-sm font-semibold hover:bg-white hover:text-black transition-all">
+              <button
+                onClick={handleComingSoon}
+                className="w-full px-8 py-3.5 border border-white/40 rounded-full text-sm font-semibold hover:bg-white hover:text-black transition-all"
+              >
                 {t("card1.button")}
               </button>
             </Card>
@@ -109,7 +135,10 @@ const AboutSection = () => {
                 </div>
               </div>
 
-              <button className="w-full px-8 py-3.5 bg-blue-600 rounded-full text-sm font-semibold hover:bg-blue-700 transition-all">
+              <button
+                onClick={handleComingSoon}
+                className="w-full px-8 py-3.5 bg-blue-600 rounded-full text-sm font-semibold hover:bg-blue-700 transition-all"
+              >
                 {t("card2.button")}
               </button>
             </Card>
@@ -138,7 +167,10 @@ const AboutSection = () => {
                 </div>
               </div>
 
-              <button className="w-full px-8 py-3.5 border border-white/40 rounded-full text-sm font-semibold hover:bg-white hover:text-black transition-all">
+              <button
+                onClick={handleComingSoon}
+                className="w-full px-8 py-3.5 border border-white/40 rounded-full text-sm font-semibold hover:bg-white hover:text-black transition-all"
+              >
                 {t("card3.button")}
               </button>
             </Card>
