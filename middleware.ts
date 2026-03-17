@@ -1,9 +1,17 @@
 import createMiddleware from 'next-intl/middleware';
-import {routing} from './i18n/routing';
- 
-export default createMiddleware(routing);
- 
+
+export default createMiddleware({
+  // Loyihangizdagi tillar
+  locales: ['uz', 'en', 'ru'],
+  
+  // Asosiy til
+  defaultLocale: 'uz',
+
+  // URL'da prefiks ko'rinmasligi uchun:
+  localePrefix: 'never' 
+});
+
 export const config = {
-  // Faqat tilga tegishli yo'llarni (match) qilish uchun
-  matcher: ['/', '/(uz|en|ru|ar|tr)/:path*']
+  // Barcha sahifalarni qamrab olish uchun
+  matcher: ['/', '/(uz|en|ru)/:path*']
 };
