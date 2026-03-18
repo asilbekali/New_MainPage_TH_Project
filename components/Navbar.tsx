@@ -1,38 +1,44 @@
 "use client";
 
-import * as React from 'react';
-import { 
-  AppBar, Box, Toolbar, IconButton, Typography, 
-  Menu, Container, Button, MenuItem, useScrollTrigger 
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import LanguageIcon from '@mui/icons-material/Language';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import { usePathname, useRouter } from 'next/navigation';
+import * as React from "react";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  Button,
+  MenuItem,
+  useScrollTrigger,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import LanguageIcon from "@mui/icons-material/Language";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { motion } from "framer-motion";
+import { useTranslations, useLocale } from "next-intl";
+import { usePathname, useRouter } from "next/navigation";
 
 const languages = [
-  { code: 'uz', label: 'O‘zbekcha' },
-  { code: 'en', label: 'English' },
-  { code: 'ru', label: 'Русский' },
-  { code: 'ar', label: 'العربية' },
-  { code: 'tr', label: 'Türkçe' }
+  { code: "uz", label: "O‘zbekcha" },
+  { code: "en", label: "English" },
+  { code: "ru", label: "Русский" },
+  { code: "ar", label: "العربية" },
+  { code: "tr", label: "Türkçe" },
 ];
 
 function ResponsiveAppBar() {
-  const t = useTranslations('header');
+  const t = useTranslations("header");
+  const locale = useLocale(); // ✅ shu haqiqiy active locale
   const pathname = usePathname();
   const router = useRouter();
 
-  const currentLocale = pathname.split('/')[1] || 'en';
-
-  // Linklarni ID larga moslab chiqdim
   const pages = [
-    { name: t('home'), link: 'hero' },
-    { name: t('aboutus'), link: 'aboutus' },
-    { name: t('course'), link: 'features' },
-    { name: t('contact'), link: 'footer' },
+    { name: t("home"), link: "hero" },
+    { name: t("aboutus"), link: "aboutus" },
+    { name: t("course"), link: "features" },
+    { name: t("contact"), link: "footer" },
   ];
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -43,31 +49,36 @@ function ResponsiveAppBar() {
     threshold: 20,
   });
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => setAnchorElNav(event.currentTarget);
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) =>
+    setAnchorElNav(event.currentTarget);
   const handleCloseNavMenu = () => setAnchorElNav(null);
-  const handleOpenLangMenu = (event: React.MouseEvent<HTMLElement>) => setAnchorElLang(event.currentTarget);
+  const handleOpenLangMenu = (event: React.MouseEvent<HTMLElement>) =>
+    setAnchorElLang(event.currentTarget);
 
-  // SKROL FUNKSIYASI
   const handleNavClick = (linkId: string) => {
     handleCloseNavMenu();
-    
-    // Agar foydalanuvchi asosiy sahifada bo'lsa
-    if (pathname === `/${currentLocale}` || pathname === `/`) {
+
+    if (pathname === `/${locale}` || pathname === `/`) {
       const element = document.getElementById(linkId);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     } else {
-      // Agar foydalanuvchi boshqa sahifada bo'lsa (masalan /login), avval homega o'tadi
-      router.push(`/${currentLocale}#${linkId}`);
+      router.push(`/${locale}#${linkId}`);
     }
   };
 
   const handleLanguageChange = (newLocale: string) => {
-    const segments = pathname.split('/');
-    segments[1] = newLocale;
-    const newPath = `/${segments.filter(Boolean).join('/')}`;
-    router.push(newPath);
+    const segments = pathname.split("/").filter(Boolean);
+
+    // agar birinchi segment locale bo‘lsa almashtiramiz
+    if (languages.some((lang) => lang.code === segments[0])) {
+      segments[0] = newLocale;
+    } else {
+      segments.unshift(newLocale);
+    }
+
+    router.push(`/${segments.join("/")}`);
     setAnchorElLang(null);
   };
 
@@ -76,90 +87,110 @@ function ResponsiveAppBar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      style={{ position: 'relative', zIndex: 1300 }}
+      style={{ position: "relative", zIndex: 1300 }}
     >
-      <AppBar 
-        position="fixed" 
+      <AppBar
+        position="fixed"
         sx={{
           zIndex: 1301,
-          background: trigger ? 'rgba(0, 0, 0, 0.75)' : 'rgba(0, 0, 0, 0.3)',
-          backdropFilter: 'blur(15px)',
-          boxShadow: trigger ? '0 4px 30px rgba(0, 0, 0, 0.2)' : 'none',
-          borderBottom: trigger ? '1px solid rgba(255, 255, 255, 0.1)' : 'none',
-          transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-          color: '#fff' 
+          background: trigger ? "rgba(0, 0, 0, 0.75)" : "rgba(0, 0, 0, 0.3)",
+          backdropFilter: "blur(15px)",
+          boxShadow: trigger ? "0 4px 30px rgba(0, 0, 0, 0.2)" : "none",
+          borderBottom: trigger ? "1px solid rgba(255, 255, 255, 0.1)" : "none",
+          transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+          color: "#fff",
         }}
       >
         <Container maxWidth="xl">
-          <Toolbar disableGutters sx={{ justifyContent: 'space-between', height: { xs: '64px', md: '80px' } }}>
-            
-            {/* LOGO */}
-            <Box 
-              onClick={() => handleNavClick('hero')}
-              sx={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                cursor: 'pointer', 
-                height: { xs: '35px', md: '45px' } 
+          <Toolbar
+            disableGutters
+            sx={{ justifyContent: "space-between", height: { xs: "64px", md: "80px" } }}
+          >
+            <Box
+              onClick={() => handleNavClick("hero")}
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                cursor: "pointer",
+                height: { xs: "35px", md: "45px" },
               }}
             >
-                <img 
-                  src="/logo.svg" 
-                  alt="Logo" 
-                  style={{ 
-                    height: '100%', 
-                    width: 'auto', 
-                    objectFit: 'contain',
-                  }} 
-                />
+              <img
+                src="/logo.svg"
+                alt="Logo"
+                style={{
+                  height: "100%",
+                  width: "auto",
+                  objectFit: "contain",
+                }}
+              />
             </Box>
 
-            {/* Desktop Menu */}
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', gap: 3 }}>
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", md: "flex" },
+                justifyContent: "center",
+                gap: 3,
+              }}
+            >
               {pages.map((page) => (
-                <Box key={page.name} sx={{ position: 'relative', '&:hover .hover-line': { width: '100%' } }}>
-                    <Button
-                        onClick={() => handleNavClick(page.link)}
-                        sx={{ 
-                            my: 2, 
-                            color: '#fff', 
-                            display: 'block', 
-                            textTransform: 'none',
-                            fontWeight: 500, 
-                            fontSize: '15px', 
-                            transition: '0.3s',
-                            '&:hover': { color: '#00bcd4', backgroundColor: 'transparent' }
-                        }}
-                    >
-                        {page.name}
-                    </Button>
-                    <Box 
-                        className="hover-line"
-                        sx={{ 
-                            position: 'absolute', bottom: 12, left: 0, width: '0%', height: '2px', 
-                            backgroundColor: '#00bcd4', transition: 'width 0.3s ease-in-out' 
-                        }} 
-                    />
+                <Box
+                  key={page.name}
+                  sx={{
+                    position: "relative",
+                    "&:hover .hover-line": { width: "100%" },
+                  }}
+                >
+                  <Button
+                    onClick={() => handleNavClick(page.link)}
+                    sx={{
+                      my: 2,
+                      color: "#fff",
+                      display: "block",
+                      textTransform: "none",
+                      fontWeight: 500,
+                      fontSize: "15px",
+                      transition: "0.3s",
+                      "&:hover": {
+                        color: "#00bcd4",
+                        backgroundColor: "transparent",
+                      },
+                    }}
+                  >
+                    {page.name}
+                  </Button>
+                  <Box
+                    className="hover-line"
+                    sx={{
+                      position: "absolute",
+                      bottom: 12,
+                      left: 0,
+                      width: "0%",
+                      height: "2px",
+                      backgroundColor: "#00bcd4",
+                      transition: "width 0.3s ease-in-out",
+                    }}
+                  />
                 </Box>
               ))}
             </Box>
 
-            {/* Right Side */}
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Button 
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <Button
                 onClick={handleOpenLangMenu}
-                startIcon={<LanguageIcon sx={{ fontSize: 20, color: '#fff' }} />} 
-                endIcon={<KeyboardArrowDownIcon sx={{ color: '#fff' }} />}
-                sx={{ color: '#fff', textTransform: 'uppercase', fontWeight: 600 }}
+                startIcon={<LanguageIcon sx={{ fontSize: 20, color: "#fff" }} />}
+                endIcon={<KeyboardArrowDownIcon sx={{ color: "#fff" }} />}
+                sx={{ color: "#fff", textTransform: "uppercase", fontWeight: 600 }}
               >
-                {currentLocale}
+                {locale}
               </Button>
-              
+
               <Menu
                 anchorEl={anchorElLang}
                 open={Boolean(anchorElLang)}
                 onClose={() => setAnchorElLang(null)}
-                PaperProps={{ sx: { mt: 1, borderRadius: '12px' } }}
+                PaperProps={{ sx: { mt: 1, borderRadius: "12px" } }}
               >
                 {languages.map((lang) => (
                   <MenuItem key={lang.code} onClick={() => handleLanguageChange(lang.code)}>
@@ -168,35 +199,38 @@ function ResponsiveAppBar() {
                 ))}
               </Menu>
 
-              <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
-                <Button 
-                  onClick={() => router.push(`/${currentLocale}/login`)} 
-                  sx={{ color: '#fff', textTransform: 'none', fontWeight: 600 }}
+              <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 1 }}>
+                <Button
+                  onClick={() => router.push(`/${locale}/login`)}
+                  sx={{ color: "#fff", textTransform: "none", fontWeight: 600 }}
                 >
-                    {t('login')}
+                  {t("login")}
                 </Button>
-                <Button 
-                    variant="contained" 
-                    onClick={() => router.push(`/${currentLocale}/register`)}
-                    sx={{ 
-                      borderRadius: '12px', px: 3, backgroundColor: '#00bcd4', 
-                      textTransform: 'none', fontWeight: 600, boxShadow: 'none'
-                    }}
+                <Button
+                  variant="contained"
+                  onClick={() => router.push(`/${locale}/register`)}
+                  sx={{
+                    borderRadius: "12px",
+                    px: 3,
+                    backgroundColor: "#00bcd4",
+                    textTransform: "none",
+                    fontWeight: 600,
+                    boxShadow: "none",
+                  }}
                 >
-                    {t('signup')}
+                  {t("signup")}
                 </Button>
               </Box>
 
-              {/* MOBILE MENU */}
-              <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                <IconButton onClick={handleOpenNavMenu} sx={{ color: '#fff' }}>
+              <Box sx={{ display: { xs: "flex", md: "none" } }}>
+                <IconButton onClick={handleOpenNavMenu} sx={{ color: "#fff" }}>
                   <MenuIcon />
                 </IconButton>
                 <Menu
                   anchorEl={anchorElNav}
                   open={Boolean(anchorElNav)}
                   onClose={handleCloseNavMenu}
-                  PaperProps={{ sx: { width: '200px', borderRadius: '12px', mt: 1.5 } }}
+                  PaperProps={{ sx: { width: "200px", borderRadius: "12px", mt: 1.5 } }}
                 >
                   {pages.map((page) => (
                     <MenuItem key={page.name} onClick={() => handleNavClick(page.link)}>
@@ -207,7 +241,6 @@ function ResponsiveAppBar() {
                   ))}
                 </Menu>
               </Box>
-
             </Box>
           </Toolbar>
         </Container>

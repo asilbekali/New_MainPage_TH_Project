@@ -404,7 +404,7 @@ export default function VideoCompareModal({
                       },
                     }}
                   >
-                    {isDubbed ? "Originalga o‘tish" : "Dublajni eshitish"}
+                    {isDubbed ? "Originalga o‘tish" : "Dublajni ko'rish"}
                   </Button>
                 </motion.div>
               </Stack>
