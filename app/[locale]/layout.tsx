@@ -28,15 +28,18 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
+      <head>
+        <Script
+          id="adsense-script"
+          async
+          strategy="beforeInteractive"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1116201113573585"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased container2`}
       >
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1116201113573585"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
         <NextIntlClientProvider messages={messages} locale={locale}>
           <ResponsiveAppBar />
           <main className="mt-7.5" style={{ paddingTop: "80px" }}>
