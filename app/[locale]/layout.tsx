@@ -30,12 +30,11 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <head>
-        <meta name="google-adsense-account" content="ca-pub-1116201113573585" />
         <Script
-          id="adsense-script"
+          async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1116201113573585"
-          strategy="beforeInteractive"
           crossOrigin="anonymous"
+          strategy="afterInteractive" 
         />
       </head>
       <body
