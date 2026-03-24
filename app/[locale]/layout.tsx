@@ -29,6 +29,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <head>
+        <meta name="google-adsense-account" content="ca-pub-1116201113573585"></meta>
         <Script
           id="adsense-script"
           async
